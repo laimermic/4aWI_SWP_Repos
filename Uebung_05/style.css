@@ -9,7 +9,7 @@ body {
 
 
 div.img-area {
-  height: 400px;
+  height: 365px;
   width: 100%;
   background: url("wemadeit.gif");
   background-position: center;
@@ -34,7 +34,7 @@ div.img-area {
   display: flex;
   flex-direction: column;
   padding: 0 20px;
-  height: 400px;
+  height: 365px;
   background-color: #fff;
 }
 
@@ -47,7 +47,6 @@ div.img-area {
   width: 80px;
   text-align: center;
   border-radius: 10px;
-  margin-bottom: 10px;
 }
 
 .right-text input {
