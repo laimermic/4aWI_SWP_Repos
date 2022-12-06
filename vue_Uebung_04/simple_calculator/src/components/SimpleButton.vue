@@ -1,5 +1,5 @@
 <template>
-    <button> {{ this.btnText }}</button>
+    <button @click="clickEvent"> {{ this.btnText }}</button>
 </template>
 
 <script>
@@ -13,6 +13,7 @@ export default {
     emits: ["btnClicked"],
     methods: {
         clickEvent() {
+            console.log("emittest")
             this.$emit('btnClicked', this.btnText)
         }
     }

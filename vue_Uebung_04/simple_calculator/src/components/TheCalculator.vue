@@ -1,12 +1,12 @@
 <template>
     <div class="calc-flex">
         <h1>Simple Calculator</h1>
-        <input type="number" name="" id="" class="input">
+        <input type="number" name="" id="" class="input" :v-model="this.calcText">
         <div class="btns">
-            <simple-button :btnText="'+'"></simple-button>
-            <simple-button :btnText="'-'"></simple-button>
-            <simple-button :btnText="'*'"></simple-button>
-            <simple-button :btnText="'/'"></simple-button>
+            <simple-button @btnClicked="addOperation" :btnText="'+'"></simple-button>
+            <simple-button @btnClicked="addOperation" :btnText="'-'"></simple-button>
+            <simple-button @btnClicked="addOperation" :btnText="'*'"></simple-button>
+            <simple-button @btnClicked="addOperation" :btnText="'/'"></simple-button>
             <button class="calculateButton">=</button>
         </div>
     </div>
@@ -15,7 +15,18 @@
 <script>
 import SimpleButton from './SimpleButton.vue';
 export default {
-    components: { SimpleButton }
+    data() {
+        return {
+            calcText: ""
+        }
+    },
+    components: { SimpleButton },
+    methods: {
+        addOperation(operationType) {
+            console.log("test")
+            this.calcText = this.calcText + " " + operationType;
+        }
+    }
 }
 </script>
 
