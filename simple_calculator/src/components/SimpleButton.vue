@@ -13,7 +13,6 @@ export default {
     emits: ["btnClicked"],
     methods: {
         clickEvent() {
-            console.log("emittest")
             this.$emit('btnClicked', this.btnText)
         }
     }

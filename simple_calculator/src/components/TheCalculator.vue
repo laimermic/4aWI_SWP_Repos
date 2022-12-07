@@ -1,13 +1,13 @@
 <template>
     <div class="calc-flex">
         <h1>Simple Calculator</h1>
-        <input type="number" name="" id="" class="input" :v-model="this.calcText">
+        <input ref="calcInput" class="input" v-model="this.calcText">
         <div class="btns">
             <simple-button @btnClicked="addOperation" :btnText="'+'"></simple-button>
             <simple-button @btnClicked="addOperation" :btnText="'-'"></simple-button>
             <simple-button @btnClicked="addOperation" :btnText="'*'"></simple-button>
             <simple-button @btnClicked="addOperation" :btnText="'/'"></simple-button>
-            <button class="calculateButton">=</button>
+            <button class="calculateButton" @click="performOperation">=</button>
         </div>
     </div>
 </template>
@@ -23,8 +23,18 @@ export default {
     components: { SimpleButton },
     methods: {
         addOperation(operationType) {
-            console.log("test")
-            this.calcText = this.calcText + " " + operationType;
+            console.log(operationType)
+            this.calcText = this.calcText + " " + operationType + " ";
+            console.log(this.calcText)
+            this.$refs.calcInput.focus();
+        },
+        performOperation() {
+            try {
+                this.calcText = eval(this.calcText);
+            } catch (error) {
+                alert("Ungültiger Rechenstring")
+            }
+            this.$refs.calcInput.focus();
         }
     }
 }
